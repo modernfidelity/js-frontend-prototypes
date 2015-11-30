@@ -1,0 +1,12 @@
+{
+  "name": "uvl",
+  "app_id": "ec07373f",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

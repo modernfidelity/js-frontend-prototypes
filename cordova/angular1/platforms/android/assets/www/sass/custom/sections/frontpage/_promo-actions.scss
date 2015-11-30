@@ -1,0 +1,92 @@
+@media only screen and (min-width: 300px) {
+
+  .promo-actions {
+
+    padding: 20px 10px 20px 10px;
+
+    .box .text a {
+
+      color: white;
+      margin: auto 0;
+
+    }
+
+  }
+
+  .promo-actions .box {
+    height: 330px;
+    overflow: hidden;
+    position:relative;
+    &:hover {
+      .img-responsive {
+        transform:scale(1.1);
+      }
+    }
+    .img-responsive {
+      transition:transform 4000ms ease; 
+    }
+    h2 {
+      position:absolute;
+      bottom:10px;
+      text-align: center;
+      font-size:20px;
+      color:#fff;
+      width:100%;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+    
+  }
+}
+
+@media only screen and (min-width: 700px) {
+
+  .promo-actions {
+
+    padding: 25px;
+
+    .text {
+      text-transform: uppercase;
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+
+    }
+
+    .text a, a:hover, a:visited {
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: white;
+      margin: auto 0;
+
+    }
+
+  }
+
+  .promo-actions .box {
+
+    height: 330px;
+
+    overflow: hidden;
+
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .promo-actions .box {
+    overflow: hidden;
+
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .promo-actions .box {
+
+    height: 410px;
+    
+
+  }
+}

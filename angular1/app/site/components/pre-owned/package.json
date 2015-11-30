@@ -1,0 +1,6 @@
+{
+  "name": "pre-owned",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./pre-owned.js"
+}

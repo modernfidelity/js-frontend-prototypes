@@ -1,0 +1,90 @@
+/* DESKTOP  */
+
+.nav-main-holder {
+
+  height: 120px;
+  background-color: transparent;
+
+  //z-index: 100;
+  position: relative;
+
+  padding: 20px 0;
+  //top: 50px;
+  width: 100%;
+
+  .logo {
+
+    z-index: 101;
+    position: absolute;
+    top: 0;
+    //border: 2px solid green;
+    width: 62px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 0 0 10px;
+  }
+
+  // NAV LINKS TOP
+  .nav-menu-one {
+
+    height: 40px;
+
+    color: white;
+
+    .dealer-title {
+      float: left;
+      text-transform: uppercase;
+      color: white;
+      width: 300px;
+      margin: 0 0 0 95px;
+    }
+
+    a {
+      text-transform: uppercase;
+      color: white;
+    }
+
+  }
+
+  // NAV LINKS BOTTOM
+  .nav-menu-two {
+
+    height: 70px;
+    padding-top: 25px;
+
+    color: $grey_dark;
+
+    background-color: white;
+    border-bottom: 2px solid $color_primary;
+
+    .menut-txt {
+      //padding-left: 70px;
+
+      width: 100%;
+    }
+
+    .menu-txt-one {
+      //border:1px solid blue;
+      margin: 0 0 0 90px;
+      float: left;
+      //width: 500px;
+    }
+
+    .menu-txt-two {
+      //border:1px solid orange;
+      margin: 0 20px 0 0;
+      float: right;
+      width: 160px;
+
+    }
+
+    a {
+      text-transform: uppercase;
+      color: $grey_dark;
+    }
+
+  }
+
+}
+
+/* Mobile */

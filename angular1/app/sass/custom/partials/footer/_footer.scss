@@ -1,0 +1,87 @@
+#footer {
+  background-color: $bg_grey_light;
+  color: $grey_light;
+  font-size: 11px;
+  margin-top:100px;
+}
+
+.footer {
+
+  .social-links {
+    text-align: center;
+    margin-left: 0;
+    list-style: none;
+    list-style-image: none;
+    border-bottom: 1px solid #bbb;
+    margin: 20px auto;
+    height: 20px;
+
+    li {
+      width:30px;
+      height:30px;
+      display: inline-block;
+      margin: 8px 0 0 0;
+      padding: 0 10px 0 0;
+      background-color: $bg_grey_light;
+      //background-color: red;
+    }
+
+    //ul { background-color: $bg_grey_light; }
+
+
+  }
+
+  .socials hr .style-one {
+
+    color: $grey_medium;
+    background-color: $grey_medium;
+    border: 0;
+    height: 1px;
+    //background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+
+  a, a:hover, a:visited {
+    color: $grey_medium;
+  }
+
+  h2 {
+    color: $grey_light;
+    font-size: 14px;
+
+    text-transform: uppercase;
+  }
+
+  .menu a {
+    color: $grey_light;
+    font-size: 11px;
+
+  }
+
+  // @todo updates from reference material
+  //
+  //  footer .social-links {
+  //    text-align: center;
+  //    margin-left: 0;
+  //    list-style: none;
+  //    list-style-image: none;
+  //    border-bottom: 1px solid #bbb;
+  //    margin: 20px auto;
+  //    height: 20px;
+  //  }
+  //
+  //  footer .social-links li {
+  //    background-color: #eaeaea;
+  //  }
+  //  auto.ferrari.com/media="all"
+  //footer ul li {
+  //  display: inline-block;
+  //  font-size: 11px;
+  //  padding: 0 10px 0 0;
+  //  color: #808080;
+  //}
+  //  auto.ferrari.com/media="all"
+  //ul li {
+  //  line-height: 24px;
+  //}
+
+}

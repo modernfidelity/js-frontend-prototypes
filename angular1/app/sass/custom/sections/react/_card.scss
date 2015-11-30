@@ -1,0 +1,28 @@
+
+
+.react-list {
+
+  border: 1px red solid;
+
+  .card {
+
+    border:1px green dashed;
+    float: left;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    padding:0;
+    margin:20px;
+
+
+    h2 {
+      font-size:14px;
+    }
+
+    img {
+      width:200px;
+    }
+  }
+
+}
+

@@ -1,0 +1,82 @@
+<!-- uvl.tpl.html -->
+<section id="uvl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 id="page-title">UVL</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="filter-component">
+
+                    <!-- Simple array count -->
+                    <p>Total Count {{(vm.listings.vehicles).length}}</p>
+
+                    <!-- ng-model for a simple query filter -->
+                    <form class="form">
+                        <input ng-model="query" type="text"
+                               placeholder="Filter by" class="search-filter" autofocus>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-8">
+
+                <!-- ngDirective provided by the dir-pagination module @bower_components -->
+                <dir-pagination-controls></dir-pagination-controls>
+
+                <ul class="media-list">
+
+                    <!-- Replace ng-repeat with custom dir from module -->
+                    <li class="media"
+                        dir-paginate="listings in vm.listings.vehicles
+                        | filter:query
+                        | orderBy: 'listings.model'
+                        | itemsPerPage: 3">
+
+                        <div class="media-left">
+                            <a href="#/vdp/{{listings.ids.vin }}">
+                                <img ng-src="{{ listings.images.list_430.img_1 }}"/>
+                            </a>
+                        </div>
+
+                        <div class="media-body">
+                            <div class="vehicle-info">
+                                <h2 class="media-heading"><a href="#/vdp/{{listings.ids.vin }}">{{
+                                    listings.translations.default.year_make_model }}</a></h2>
+
+                                <h3>{{ listings.translations.default.price_formated }}</h3>
+
+                                <p>Exterior Colour: {{ listings.translations.default.price_formated }}<br>
+                                    Interior Trim: {{ listings.translations.default.odometer }}<br>
+                                    Vin: {{listings.ids.vin }} <br>
+                                    Odometer: {{ listings.translations.default.odometer }}</p>
+
+                                <!--{{ listings._id }} | {{ listings.ids.vin }}-->
+
+                            </div>
+                            <div class="dealer-info">
+
+                                <p>Dealer Name : {{ listings.dealer.name }}<br>
+                                    Town : {{ listings.dealer.town }}<br>
+                                    Phone : {{ listings.dealer.phone }}<br>
+                                    Website : {{ listings.dealer.dealer_url }}</p>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- ngDirective provided by the dir-pagination module @bower_components -->
+                <dir-pagination-controls></dir-pagination-controls>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

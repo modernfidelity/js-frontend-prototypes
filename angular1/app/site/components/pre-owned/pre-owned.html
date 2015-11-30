@@ -1,0 +1,65 @@
+<section id="news">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h1 id="page-title">Pre-owned Vehicles ({{ (vm.listings).length }})</h1>
+
+                <!--<pre>{{ vm.listings[0] | json }}</pre>-->
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div>
+
+                    <!--<p>Filters</p>-->
+
+                    <form class="form-inline">
+                        <input ng-model="query" type="text"
+                               placeholder="Filter by" autofocus>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="col-md-8">
+
+
+                <ul class="media-list">
+                    <li class="media" ng-repeat="listings in vm.listings | filter:query | orderBy: 'listings.model'">
+                        <div class="media-left">
+                            <a href="#">
+
+                                <img ng-src="http://iproxy.prd.srv.motortrak.com/{{listings.regyear}}/{{listings.make}}-{{listings.model}}-{{listings.town}}-{{listings.vin}}-141-0.jpg"/>
+
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"> {{ listings.make }} {{ listings.model}} in {{ listings.town}}, {{
+                                listings.state}}</h4>
+
+                            <p>Color: {{listings.metacolour }} | Trim: {{ listings.trim }} | {{ listings.bodystyle}} | {{
+                                listings.town}}</p>
+
+                            <p>{{listings.mileage}} Miles | {{ listings.transmission }}</p>
+
+                            <p>Stock Number : {{listings.stockno}}</p>
+
+                            <p>{{ listings.currency }} {{ listings.price }} | {{ listings.phone }}</p>
+
+                        </div>
+                    </li>
+                </ul>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</section>

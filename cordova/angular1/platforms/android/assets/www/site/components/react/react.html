@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <h1>React Components </h1>
+
+            <!--{{ vm.listings | json }}-->
+
+
+            <h2>List Collection</h2>
+
+
+            <!-- React Component mapped to Directive -->
+            <listcollection items="vm.listings.vehicles"/>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- ngDirective provided by the dir-pagination module @bower_components -->
+                    <dir-pagination-controls></dir-pagination-controls>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <!-- Replace ng-repeat with custom dir from module -->
+                <div class="col-sm-4"
+                     dir-paginate="listings in vm.listings.vehicles
+                        | filter:query
+                        | orderBy: 'listings.model'
+                        | itemsPerPage: 6
+                        ">
+
+
+                    <!-- React Component mapped to Directive -->
+                    <card title="listings.translations.default.year_make_model" image="listings.images.list_430.img_1"
+                          body="listings.translations.default.price_formated"></card>
+
+                </div>
+
+            </div>
+
+
+            <div class="text-center">
+                <hello fname="vm.person.fname" lname="vm.person.lname"/>
+            </div>
+
+            <!--<div ng-repeat="item in items|limitTo:4">{{item}}</div>-->
+
+            <h3>Card Component (flat)</h3>
+
+            <div class="row">
+
+                <div ng-repeat="t in vm.getRepeat(3) track by $index">
+
+                    <div class="col-sm-4">
+                        <card title="vm.card.title" image="vm.card.image" body="vm.card.body"></card>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+

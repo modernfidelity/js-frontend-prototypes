@@ -1,0 +1,229 @@
+/**
+ * Promo Grid Component (frontpage)
+ *
+ */
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 300px) {
+
+  .promo-grid {
+
+  }
+
+  // promo grid : box item
+  .grid-box {
+
+    position: relative;
+
+    .text {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      z-index: 101;
+      //top: 135px;
+
+      left: 0;
+
+      text-transform: uppercase;
+
+      a {
+        color: white;
+
+      }
+
+      a.black {
+        color: black;
+      }
+
+      .title {
+        text-align: center;
+        width: 100%;
+        height: 30px;
+        padding: 0 0 0 0;
+        margin: 0;
+        font-size: 14px;
+
+        //border: 1px green solid;
+
+      }
+
+      .strapline {
+        //border:1px purple solid;
+        width: 100%;
+        font-size: 14px;
+        display: none;
+      }
+
+    }
+
+  }
+
+  // this is the single unit everything is { (singleUnit * multiplier) + margin }
+
+  .height-1 {
+    height: 100px;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+  .height-2 {
+    height: 220px; // add footer margin space
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+  // Red
+  .ferrari-approved {
+    width: 100%;
+    display: table;
+    img {
+      //border:1px green solid;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  }
+
+  .ferrari-approved-inner {
+
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  // Yellow
+  .genuine-ferrari {
+
+    height: 160px;
+
+    img {
+      //border:1px green solid;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  }
+
+  // Grey
+  .track-day {
+
+    padding-top: 30px;
+    height: 350px;
+
+    img {
+      //border:1px green solid;
+      margin: 0 auto;
+
+      padding: 20px;
+    }
+
+  }
+
+}
+
+@media only screen and (min-width: 500px) {
+
+}
+
+@media only screen and (min-width: 700px) {
+
+  // promo grid : box item
+  .grid-box {
+
+    position: relative;
+
+    .text {
+
+      position: absolute;
+      z-index: 101;
+      bottom: 5px;
+
+      //left: 15px;
+
+      .title {
+
+        margin: 0;
+        //border:1px solid red;
+        font-size: 14px;
+      }
+
+      .strapline {
+        //border:1px purple solid;
+        text-align: left;
+        margin-top: 0;
+        font-size: 11px;
+      }
+
+    }
+
+  }
+
+  .height-1 {
+    //border:1px solid orange;
+    height: 150px;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+  .height-2 {
+    //border:1px solid blue;
+    height: 320px; // add footer margin space
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+}
+
+@media only screen and (min-width: 990px) {
+
+  // promo grid : box item
+  .grid-box {
+
+    .text {
+
+      padding: 0 0 0 10px;
+      bottom: 0;
+
+      .title {
+
+        text-align: left;
+        margin: 0;
+        //border:1px solid blue;
+        font-size: 14px;
+      }
+
+      .strapline {
+        //border:1px purple solid;
+        display: block;
+        height: 20px;
+        font-size: 11px;
+      }
+
+    }
+
+  }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+  .grid-box {
+
+    .text {
+
+      padding: 0 0 0 10px;
+      bottom: 5px;
+
+    }
+  }
+
+  .height-1 {
+    height: 200px;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+  .height-2 {
+    height: 420px; // add footer margin space
+    margin: 0 0 20px 0;
+    overflow: hidden;
+  }
+
+}

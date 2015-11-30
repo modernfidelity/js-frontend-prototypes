@@ -1,0 +1,23 @@
+{
+  "sumname": "filtered",
+  "return": "list",
+  "vin": [
+    "ZFF70RDC000177797",
+    "ZFF70RDB000175370",
+    "ZFF70RDB000177550",
+    "CC08FER",
+    "GN59FRF",
+    "ZFF74UHC000211221"
+  ],
+  "order": [
+    "approved",
+    "priced"
+  ],
+  "tree_type": "cl_lp-mo_bo-lp",
+  "lang": "en_gb",
+  "include_special_prices": "1",
+  "equipment_meta_uncombined": "1",
+  "hits": {
+    "to": 25
+  }
+}

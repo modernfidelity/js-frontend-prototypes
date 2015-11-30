@@ -1,0 +1,31 @@
+.ghost-arrow {
+  float: left;
+  margin: 3px 10px 0 10px;
+  width: 10px !important;
+}
+
+/*
+* Simple Transition Effect
+*/
+.ghost-button-transition {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: left;
+  outline: none;
+  text-decoration: none;
+  -webkit-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  transition: background-color 0.2s ease-out,
+  color 0.2s ease-out;
+}
+
+.ghost-button-transition:hover,
+.ghost-button-transition:active {
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  transition: background-color 0.3s ease-in,
+  color 0.3s ease-in;
+}

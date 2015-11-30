@@ -1,0 +1,55 @@
+
+
+
+/* Flat Color BGs */
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-yellow {
+  background-color: $bg_yellow;
+}
+
+.bg-red{
+  background-color: $bg_red;
+}
+
+
+.bg-gray-dark{
+  background-color: $bg_grey_dark;
+}
+
+body {
+  @media only screen and (min-width: 1200px) {
+    background-color: #eaeaea;
+  }
+}
+
+
+
+.wrapper {
+	background:#fff;
+	max-width:100%;
+	margin:0 auto;
+	@media only screen and (min-width: 1200px) {
+		max-width:1260px;
+		margin:-5px auto;
+		padding:20px 0
+	}
+	@media only screen and (min-width: 1440px) {
+		max-width: 1440px;
+	}
+
+}
+#promo-grid {
+	.wrapper {
+		padding-top:0;
+	}
+}
+#promo-actions {
+	.wrapper {
+		padding-bottom:0; 
+	}
+}
+

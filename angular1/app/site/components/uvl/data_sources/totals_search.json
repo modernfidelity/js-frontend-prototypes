@@ -1,0 +1,14 @@
+{
+  "sumname": "unfiltered",
+  "return": "count",
+  "tree_type": "cl_lp-mo_bo-lp",
+  "currency_locale": "fr_FR",
+  "distance_unit": "km",
+  "currency": "EUR",
+  "lang": "en_gb",
+  "include_special_prices": "1",
+  "equipment_meta_uncombined": "1",
+  "market": [
+    "ferrari france"
+  ]
+}

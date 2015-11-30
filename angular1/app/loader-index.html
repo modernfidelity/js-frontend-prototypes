@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="project" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="project" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="project" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="project" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <base href="/">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- @todo : convert to service -->
+    <title>{{pageTitle}}</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+
+    <style>
+
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+
+    <!-- single CSS compile -->
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" type="text/css" href="css/loader.css"/>
+
+    <!-- slick carousel-->
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css">
+
+    <!-- bootstrap 3.x -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="bower_components/modernizer/modernizr.js"></script>
+
+
+</head>
+
+<body>
+
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+
+<div id="ip-container" class="ip-container">
+
+    <!-- initial header -->
+    <header class="ip-header">
+
+        <div class="ip-loader">
+
+            <img src="/img/assets/prancing-pony.png" class="loader-logo"/>
+
+
+            <svg class="ip-inner" width="60px" height="60px" viewBox="0 0 80 80">
+                <path class="ip-loader-circlebg"
+                      d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+                <path id="ip-loader-circle" class="ip-loader-circle"
+                      d="M40,10C57.351,10,71,23.649,71,40.5S57.351,71,40.5,71 S10,57.351,10,40.5S23.649,10,40.5,10z"/>
+            </svg>
+        </div>
+    </header>
+
+
+    <!-- main content -->
+    <div class="ip-main">
+
+
+        <div id="page-wrapper">
+
+
+            <!-- mobile top nav -->
+            <section id="mobile-nav">
+
+                <div class="mobile-nav hidden-md hidden-lg">
+
+                    <div class="mobile-logo-wrapper">
+                        <img src="/img/assets/mobile-logo.png" class="mobile-logo"/>
+                    </div>
+                    <div class="text">
+                        <span class="dealer-title">Dealer Name</span>
+                        <span class="dealer-strapline">Official Ferrari Dealer</span>
+                    </div>
+
+                    <div class="mobile-btn">
+                        <a href="#"> <img src="/img/assets/burger_menu.svg" class="mobile-nav-btn"/></a>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- global : top bar -->
+            <section id="top-bar">
+                <div class="top-bar  hidden-sm hidden-xs">
+                    <div class="container">
+                        <div class="top-bar-logo">
+                            <img src="/img/assets/logo-ferrari.png" class=""/>
+                        </div>
+                        <div class="top-bar-txt">
+                            <ul class="list-inline text-right">
+                                <li><a href="">News</a></li>
+                                <li><a href="">Auto</a></li>
+                                <li><a href="">Scuderia</a></li>
+                                <li><a href="">Store</a></li>
+                                <li><a href="">Experience</a></li>
+                                <li><a href="">Follow Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- global : main nav -->
+            <section id="top-nav">
+                <div class="nav-main-holder hidden-sm hidden-xs">
+
+                    <div class="nav-top">
+
+                        <div class="container">
+
+                            <div class="logo">
+                                <a href="#/frontpage"><img src="/img/assets/logo.png" class="logo-main"/></a>
+                            </div>
+
+                            <div class="nav-menu-one">
+                                <div class="row ">
+                                    <div class="col-sm-12">
+                                        <span class="dealer-title">Dealer Name</span>
+                                        <ul class="list-inline pull-right text-right">
+                                            <li><a href="">Official Ferrari Dealer</a></li>
+                                            <li>|</li>
+                                            <li><a href="">
+                                                <!-- locale -->
+                                                DE
+                                            </a></li>
+                                            <li>|</li>
+                                            <li><a href=""> <img src="/img/assets/map-pin.svg" class=""/></a></li>
+                                            <li>|</li>
+                                            <li><a href=""> <img src="/img/assets/share.svg" class=""/></a></li>
+                                            <li>|</li>
+                                            <li><a href=""> <img src="/img/assets/magnifying-glass.svg"
+                                                                 class=""/></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="nav-menu-two">
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <div class="menu-txt">
+                                            <!-- one -->
+                                            <ul class="menu-txt-one list-inline pull-left">
+                                                <li><a href="#/news">News</a></li>
+                                                <li>|</li>
+                                                <li><a href="#/pre-owned">Pre-Owned</a></li>
+                                                <li>|</li>
+                                                <li><a href="#/vehicles">Vehicles</a></li>
+                                                <li>|</li>
+                                                <li><a href="#/about">About Us</a></li>
+                                                <li>|</li>
+                                                <li><a href="#/contact">Contact</a></li>
+                                                <li>|</li>
+                                                <li><a href="#/search">Search</a></li>
+
+                                            </ul>
+
+                                            <!-- two -->
+                                            <ul class="menu-txt-two list-inline pull-right text-right">
+                                                <li><a href="">Call 020 7234 6789</a></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- main content : ng render -->
+            <section id="content">
+                <div ng-view></div>
+            </section>
+
+
+            <!-- footer -->
+            <section id="footer" class="footer">
+
+                <div class="socials">
+                    <div class="container">
+
+
+                        <div class="col-sm-12">
+
+                            <ul class="social-links">
+                                <li><img src="/img/assets/facebook.svg"/></li>
+                                <li><img src="/img/assets/twitter.svg"/></li>
+                                <!--<li><img src="/img/assets/google-plus.svg"/></li>-->
+                                <li><img src="/img/assets/youtube.svg"/></li>
+                                <li><img src="/img/assets/flickr.svg"/></li>
+                            </ul>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="menu">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="mobile-footer-menu col-sm-12 hidden-md hidden-lg">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <span>Auto</span>
+                                        <img src="/img/assets/plus.svg" class="icon-plus"/>
+                                    </li>
+                                    <li>
+                                        <span>Preowned</span>
+                                        <img src="/img/assets/plus.svg" class="icon-plus"/>
+                                    </li>
+                                    <li>
+                                        <span>Aftersales</span>
+                                        <img src="/img/assets/plus.svg" class="icon-plus"/>
+                                    </li>
+                                    <li>
+                                        <span>About</span>
+                                        <img src="/img/assets/plus.svg" class="icon-plus"/>
+                                    </li>
+                                </ul>
+
+                                <div class="directions">
+                                    <img src="/img/assets/map-pin-dark.svg"/>
+                                    <span class="title-case">Get Directions</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row hidden-xs hidden-sm">
+
+
+                            <div class="col-sm-12  col-md-3 ">
+                                <h2>Auto</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Available Inventory</a></li>
+                                    <li><a href="#">Current Range</a></li>
+                                    <li><a href="#">F12berlinetta</a></li>
+                                    <li><a href="#">FF</a></li>
+                                    <li><a href="#">Ferrari 488 GTB</a></li>
+                                    <li><a href="#">Ferrari California T</a></li>
+                                    <li><a href="#">458 Spider</a></li>
+                                    <li><a href="#">458 Speciale</a></li>
+                                    <li><a href="#">Ferrari 458 Speciale A</a></li>
+                                    <li><a href="#">LeFarrari</a></li>
+                                    <li><a href="#">Tailer Made</a></li>
+                                    <li><a href="#">Multi-Media</a></li>
+                                    <li><a href="#">Financial Services</a></li>
+                                    <li><a href="#">Test Drive Request</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <h2>Preowned</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Pre-Owned Inventory</a></li>
+                                    <li><a href="#">Ferrari Approved Program</a></li>
+                                    <li><a href="#">Technical Inspection</a></li>
+                                    <li><a href="#">Provenance &amp; Preparation</a></li>
+                                    <li><a href="#">Warranty &amp; Assistance</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <h2>Aftersales</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Service Request</a></li>
+                                    <li><a href="#">Owners Club</a></li>
+                                    <li><a href="#">Ferrari Service</a></li>
+                                    <li><a href="#">Roadside Assistance</a></li>
+                                    <li><a href="#">Maintenance</a></li>
+                                    <li><a href="#">Ferrari Power Warranty</a></li>
+                                    <li><a href="#">Service Packages</a></li>
+                                    <li><a href="#">Ferrari Genuine</a></li>
+                                    <li><a href="#">Ferrari Classiche</a></li>
+                                    <li><a href="#">Restoration</a></li>
+                                    <li><a href="#">Merchandise</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <h2>Official Dealer</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Opening Hours</a></li>
+                                    <li><a href="#">Get Directions</a></li>
+                                    <li><a href="#">News & Events</a></li>
+                                    <li><a href="#">Finance Services</a></li>
+                                    <li><a href="#">Our Showroom</a></li>
+                                    <li><a href="#">About Us</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="container hidden-xs hidden-sm">
+                    <div class="row">
+
+                        <div class="col-sm-12 text-center">
+                            <div>
+                                Ferrari Dealer Name, Address Line 1, Address Line 2, Town, City, Code, Country
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-12 text-center">
+                            <div>
+                                Tel: 1234 567 890 Tel: 1234 567 890
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-sm-12 ">
+                            <div class="line">
+                                <hr class="hr_style1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="legal">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>&copy; Ferrari S.p.A. All rights reserved.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- /container -->
+
+
+    </div>
+</div>
+<!-- /container -->
+
+
+<!-- JAVASCRIPT  -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/slick-carousel/slick/slick.js"></script>
+<script src="bower_components/angular-slick/dist/slick.js"></script>
+<script src="bower_components/api-check/dist/api-check.js"></script>
+<script src="bower_components/angular-formly/dist/formly.js"></script>
+<script src="bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+
+<!-- load application modules -->
+<script src="site/components/frontpage/frontpage.js"></script>
+<script src="site/components/news/news.js"></script>
+<script src="site/components/view1/view1.js"></script>
+<script src="site/components/view2/view2.js"></script>
+<script src="site/components/about/about.js"></script>
+<script src="site/components/contact/contact.js"></script>
+<script src="site/components/search/search.js"></script>
+<script src="site/components/pre-owned/pre-owned.js"></script>
+<script src="site/components/vehicles/vehicles.js"></script>
+
+<script src="site/api/api.js"></script>
+
+<script src="app.js"></script>
+
+<!-- @todo : final one js file... -->
+<!--<script src="build.js"></script>-->
+
+<!-- custom loader (move to directive) -->
+<script src="js/classie.js"></script>
+<script src="js/pathLoader.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/boxes.js"></script>
+
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<!--<script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>-->
+
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!--<script>-->
+<!--(function (b, o, i, l, e, r) {-->
+<!--b.GoogleAnalyticsObject = l;-->
+<!--b[l] || (b[l] =-->
+<!--function () {-->
+<!--(b[l].q = b[l].q || []).push(arguments)-->
+<!--});-->
+<!--b[l].l = +new Date;-->
+<!--e = o.createElement(i);-->
+<!--r = o.getElementsByTagName(i)[0];-->
+<!--e.src = '//www.google-analytics.com/analytics.js';-->
+<!--r.parentNode.insertBefore(e, r)-->
+<!--}(window, document, 'script', 'ga'));-->
+<!--ga('create', 'UA-XXXXX-X', 'auto');-->
+<!--ga('send', 'pageview');-->
+<!--</script>-->
+</body>
+</html>

@@ -1,0 +1,43 @@
+<div class="mobile-menu">
+
+    <div class="burger">
+        <div ng-click="toggleOverlay()"><img src="/img/assets/burger_menu.svg" class="mobile-nav-btn"/></div>
+    </div>
+
+
+    <div class="menu-overlay" ng-show="toggle">
+
+        <div class="overlay-close" ng-click="toggleOverlay()">x</div>
+
+
+        <div class="content">
+
+            <!--<p>I AM OVERLAY</p>-->
+
+
+
+            <ul class="list-unstyled overlay-links">
+                <li>
+                    <a ng-click="toggleOverlay()" href="#/news">News</a>
+
+                </li>
+                <li>
+                    <a ng-click="toggleOverlay()" href="#/react">React</a>
+
+                </li>
+                <li>
+                    <a ng-click="toggleOverlay()" href="#/uvl">UVL</a>
+
+                </li>
+                <li>
+                    <a ng-click="toggleOverlay()" href="#/about">About</a>
+
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+</div>

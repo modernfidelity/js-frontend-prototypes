@@ -1,0 +1,151 @@
+/**
+ *
+ * Hero lider Item Copy
+ *
+ */
+
+@media only screen and (min-width: 300px) {
+
+  .text-overlay {
+
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    //margin-top: 180px;
+
+    position: absolute;
+    bottom: 0;
+
+    display: block;
+    padding-left: 0;
+    width: 100%;
+
+    //border:2px orange solid;
+
+    .inner {
+      width: 100%;
+    }
+  }
+
+  .item-txt {
+
+  }
+
+  .title {
+    float: none;
+    font-size: 15px;
+    line-height: 20px;
+    padding-bottom: 20px;
+  }
+
+  .strapline {
+    float: left;
+    clear: both;
+    padding-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .ghost-button {
+    padding: 20px 0;
+  }
+
+}
+
+@media only screen and (min-width: 500px) {
+
+  .title {
+    float: none;
+    font-size: 15px;
+    line-height: 20px;
+    padding-bottom: 20px;
+  }
+
+  .strapline {
+    float: left;
+    clear: both;
+    padding-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .ghost-button {
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+
+  .text-overlay {
+
+    text-align: center;
+    bottom: 0;
+    padding-left: 0;
+    //border:2px green solid;
+
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0;
+  }
+
+  .strapline {
+    font-size: 15px;
+
+  }
+
+  .ghost-button {
+    margin: 20px 0 0 0;
+  }
+
+}
+
+@media only screen and (min-width: 990px) {
+  .text-overlay {
+
+    bottom: 30%;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+
+    padding-left: 100px;
+    //border:2px orange solid;
+
+    .inner {
+      width: 450px;
+    }
+  }
+
+  .title {
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0;
+  }
+
+  .strapline {
+    font-size: 15px;
+
+  }
+
+  .ghost-button {
+    margin: 20px 0 0 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .text-overlay {
+
+    bottom: 35%;
+    text-align: left;
+    text-transform: uppercase;
+    color: white;
+
+    padding-left: 70px;
+    //border:2px blue solid;
+
+    .inner {
+      width: 450px;
+    }
+  }
+
+}

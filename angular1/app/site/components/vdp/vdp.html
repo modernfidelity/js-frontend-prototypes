@@ -1,0 +1,90 @@
+<section id="news">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <h1 id="page-title"><h1>{{ vm.listings.vehicles[0].main_info.reg_year }} {{ vm.listings.filtered.make +
+                    " " + vm.listings.filtered.model}}</h1> (VDP)
+                </h1>
+                <p>ID: {{vm.id}}</p>
+
+                <p><a href="#/uvl"><< Back </a></p>
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+                <div class="gallery">
+
+                    <!--<img class="img-responsive" ng-src="{{ vm.listings.vehicles[0].images.list_720.img_1 }} " />-->
+
+
+                    <div ng-repeat="image in vm.listings.vehicles[0].images.list_720.all">
+                        <img class="img-responsive" ng-src="{{ image }}"/>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- text -->
+            <div class="col-md-6">
+
+                <!--<h2>Details</h2>-->
+
+
+                <!--<div class="content-body">-->
+
+                    <!--<div class="vehicle-info">-->
+
+                        <!--<h2 class="media-heading">{{ listings.translations.default.year_make_model }}</h2>-->
+
+                        <!--<h3>{{ listings.translations.default.price_formated }}</h3>-->
+
+                        <!--<p>Exterior Colour: {{ listings.translations.default.price_formated }}</p>-->
+
+                        <!--<p>Interior Trim: {{ listings.translations.default.odometer }}</p>-->
+
+                        <!--<p>Odometer: {{ listings.translations.default.odometer }}</p>-->
+
+                        <!--&lt;!&ndash;{{ listings._id }} | {{ listings.ids.vin }}&ndash;&gt;-->
+
+                    <!--</div>-->
+
+                    <!--<div class="dealer-info">-->
+
+                        <!--<p>Dealer Name : {{ listings.dealer.name }}</p>-->
+
+                        <!--<p>Town : {{ listings.dealer.town }}</p>-->
+
+                        <!--<p>Phone : {{ listings.dealer.phone }}</p>-->
+
+                        <!--<p>Website : {{ listings.dealer.dealer_url }}</p>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+
+
+                <h2>Features</h2>
+
+                <ul>
+                    <li ng-repeat="feature in vm.listings.filtered.features">
+
+                        {{feature}}
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+

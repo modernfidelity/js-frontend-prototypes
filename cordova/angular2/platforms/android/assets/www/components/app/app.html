@@ -1,0 +1,28 @@
+<section class="app-content">
+
+    <!-- nav -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li><a [router-link]="['/Home']">Home</a></li>
+                <li><a [router-link]="['/About']">About</a></li>
+                <li><a [router-link]="['/News']">News</a></li>
+                <li><a [router-link]="['/Uvl']">UVL</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!-- main content -->
+    <div class="row">
+        <div class="col-sm-12">
+
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+
+
+</section>

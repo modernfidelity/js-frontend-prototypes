@@ -1,0 +1,16 @@
+<div>
+    <!-- login-top-bar.tpl.html -->
+
+    <!-- Login / Auth buttons -->
+    <ul class=" navbar-right list-inline login-top-bar">
+        <li ng-if="!isAuthenticated"><a href="#/login" class="login">Login</a></li>
+        <li ng-if="isAuthenticated"><span class="logout" ng-click="logout()">Logout</span></li>
+    </ul>
+
+    <!-- Current vm.user data -->
+    <div ng-if="isAuthenticated" class="user-menu-top-bar">
+
+        <img popover-placement="bottom" viewport="body" uib-popover-template="userPopover.templateUrl"  popover-popup-close-delay="500" popover-trigger="mouseenter" src="/img/chewbacca-starwars.jpg"
+             class="img-circle" width="30px" height="30px"/>
+    </div>
+</div>
