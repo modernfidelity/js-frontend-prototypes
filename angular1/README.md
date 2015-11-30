@@ -75,7 +75,7 @@ The following URLs connects to public data sets.
  
 ### / {root}
  
-This demos the Angular JS 1.x application, which is decoupled i.e standalone and can talk to various APIs to source its data.  i.e /#/uvl & the VDP page. 
+This demos the Angular JS 1.x application, which is decoupled i.e standalone and can talk to various APIs to source its data.   
  
 ### /#/react 
 
