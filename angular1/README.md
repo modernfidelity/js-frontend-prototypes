@@ -69,9 +69,9 @@ Run the server from within the  /app directory with :
 Demos (Angular1 + React)
 -------------
 
-The following URLs connect to the public ferrari vdata.php script & pull down the data set and demo the renders and JS app.  
+The following URLs connects to public data sets.  
 
-*(To view the Ferrari Data + Mercedes Benz USA data -- you will need the CORSPROXY nodejs server running locally or nginx proxy which routes and adds CORS headers to the responses.)*  
+*(To view the public Data -- you will need a proxy server running locally which routes and adds CORS headers to the responses.)*  
  
 ### / {root}
  
@@ -79,7 +79,7 @@ This demos the Angular JS 1.x application, which is decoupled i.e standalone and
  
 ### /#/react 
 
-This demo component renders the vdata.php response with custom React components List, Card, SimpleTxt to highlight the performance improvements of 'Virtual Dom' and how 
+This demo component renders the data response with custom React components List, Card, SimpleTxt to highlight the performance improvements of 'Virtual Dom' and how 
 the Angular framework 'View' layer can be interchanged with other libraries.  
  
  
@@ -138,7 +138,8 @@ This looks for an scenarios / spec files (*.js) within the current working direc
  
 *Please note this is looking for a test server on PORT 8181 via the package.json['testserver'] 
 
- This will need to updated to env_var at some point
+
+This will need to updated to env_var at some point
  
  
   
