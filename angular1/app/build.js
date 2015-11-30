@@ -69607,7 +69607,7 @@ angular.module('project.frontpage', ['ngRoute'])
 
         $routeProvider.when('/frontpage', {
 
-            title: 'Ferrari Frontpage',
+            title: 'Frontpage',
             templateUrl: './site/components/frontpage/frontpage.html',
             controller: 'FrontpageController',
             controllerAs: 'vm'
@@ -69943,8 +69943,7 @@ PreownedController.$inject = ['PreownedDataService'];
  */
 function PreownedDataService($http) {
 
-    //var listingsAPI = "http://localhost:8000/vdata.php?search={%22market%22%3A[%22land+rover+australia%22]%2C%22return%22%3A%22list%22}";
-    var listingsAPI = "http://localhost:1337/www.romano.mercedesdealer.com/cgi-bin/mbusa/mbhlnew.cgi?format=json&franchisefirst=1&photocars=&dealer=80398&country2=US&request=used&mileagefrom=0&sortby=yeardesc&yearto=9999&labels=1";
+    var listingsAPI = "http://localhost:1337/data-endpoint";
 
     var term = "Sherlock Holmes";
 
@@ -70190,7 +70189,7 @@ UvlController.$inject = ['UvlDataService'];
  */
 function UvlDataService($http, $httpParamSerializer) {
 
-    // Setup endpoint var with local cors proxy which maps to http://preowned.ferrari.com/vdata.php
+    // Setup endpoint var with local cors proxy otherwise you might not be able to return data
     var listingsAPI = "http://mtk-api/vdata.php";
 
     // Function return

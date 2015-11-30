@@ -15,7 +15,7 @@ angular.module('project.frontpage', ['ngRoute'])
 
         $routeProvider.when('/frontpage', {
 
-            title: 'Ferrari Frontpage',
+            title: 'Frontpage',
             templateUrl: './site/components/frontpage/frontpage.html',
             controller: 'FrontpageController',
             controllerAs: 'vm'
