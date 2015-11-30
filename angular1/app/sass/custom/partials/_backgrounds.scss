@@ -1,35 +1,16 @@
 
 
 
-/* Flat Color BGs */
-
-.bg-white {
-  background-color: white;
-}
-
-.bg-yellow {
-  background-color: $bg_yellow;
-}
-
-.bg-red{
-  background-color: $bg_red;
-}
-
-
-.bg-gray-dark{
-  background-color: $bg_grey_dark;
-}
-
 body {
-  @media only screen and (min-width: 1200px) {
-    background-color: #eaeaea;
-  }
+
+    background-color: #f3f3ee;
+
 }
 
 
 
 .wrapper {
-	background:#fff;
+	background:#f3f3ee;
 	max-width:100%;
 	margin:0 auto;
 	@media only screen and (min-width: 1200px) {

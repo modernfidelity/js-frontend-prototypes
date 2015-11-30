@@ -1697,53 +1697,9 @@ html, body {
       margin-top: -5px;
       width: 40px; }
 
-/* DESKTOP  */
-.nav-main-holder {
-  height: 120px;
-  background-color: transparent;
-  position: relative;
-  padding: 20px 0;
-  width: 100%; }
-  .nav-main-holder .logo {
-    z-index: 101;
-    position: absolute;
-    top: 0;
-    width: 62px;
-    height: 100px;
-    overflow: hidden;
-    margin: 0 0 0 10px; }
-  .nav-main-holder .nav-menu-one {
-    height: 40px;
-    color: white; }
-    .nav-main-holder .nav-menu-one .dealer-title {
-      float: left;
-      text-transform: uppercase;
-      color: white;
-      width: 300px;
-      margin: 0 0 0 95px; }
-    .nav-main-holder .nav-menu-one a {
-      text-transform: uppercase;
-      color: white; }
-  .nav-main-holder .nav-menu-two {
-    height: 70px;
-    padding-top: 25px;
-    color: #2D2D2D;
-    background-color: white;
-    border-bottom: 2px solid #e83134; }
-    .nav-main-holder .nav-menu-two .menut-txt {
-      width: 100%; }
-    .nav-main-holder .nav-menu-two .menu-txt-one {
-      margin: 0 0 0 90px;
-      float: left; }
-    .nav-main-holder .nav-menu-two .menu-txt-two {
-      margin: 0 20px 0 0;
-      float: right;
-      width: 160px; }
-    .nav-main-holder .nav-menu-two a {
-      text-transform: uppercase;
-      color: #2D2D2D; }
+.navbar-default {
+  background-color: white; }
 
-/* Mobile */
 .mobile-footer-menu {
   text-transform: uppercase;
   font-size: 18px; }
@@ -1758,10 +1714,13 @@ html, body {
     padding: 10px 0; }
 
 #footer {
-  background-color: #eaeaea;
-  color: #a1a1a1;
-  font-size: 11px;
+  background-color: #4c4c4c;
+  color: whitesmoke;
   margin-top: 100px; }
+
+.footer .legal {
+  background-color: #333333;
+  padding: 20px; }
 
 .footer .social-links {
   text-align: center;
@@ -1905,25 +1864,11 @@ html, body {
     margin: 0 0 20px 0;
     overflow: hidden; } }
 
-/* Flat Color BGs */
-.bg-white {
-  background-color: white; }
-
-.bg-yellow {
-  background-color: #FEEE35; }
-
-.bg-red {
-  background-color: #e83134; }
-
-.bg-gray-dark {
-  background-color: #2D2D2D; }
-
-@media only screen and (min-width: 1200px) {
-  body {
-    background-color: #eaeaea; } }
+body {
+  background-color: #f3f3ee; }
 
 .wrapper {
-  background: #fff;
+  background: #f3f3ee;
   max-width: 100%;
   margin: 0 auto; }
   @media only screen and (min-width: 1200px) {
