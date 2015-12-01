@@ -5,7 +5,7 @@
 
                 <h1>News</h1>
 
-                <!--<pre>{{ vm.listings[0] | json }}</pre>-->
+                <!--<pre>{{ vm.listings | json }}</pre>-->
 
             </div>
         </div>
@@ -16,102 +16,22 @@
 
                 <p>Display a list of the latest news stories from the content API.</p>
 
-                <!-- loop through api data from controller -->
+
                 <ul class="media-list">
-                    <li class="media">
+                    <li class="media" ng-repeat="item in vm.listings track by $index">
                         <div class="media-left">
                             <a href="#">
-                                <img src="http://ichef-1.bbci.co.uk/news/165/cpsprodpb/15664/production/_86825678_cats9.png" datasrc="http://ichef-1.bbci.co.uk/news/200/cpsprodpb/17253/production/_86830849_86830847.jpg" class="js-image-replace" alt="George Osborne" width="100px" >
+                                <img ng-src="{{item.field_image[0].url}}" width="250px" class="media-object"/>
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"> News Item</h4>
-                            <p>Title of artice </p>
+                            <h4 class="media-heading">{{item.title[0].value}}</h4>
+
+                            <p ng-bind-html="item.body[0].value"></p>
 
                         </div>
                     </li>
-
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="http://ichef-1.bbci.co.uk/news/165/cpsprodpb/15664/production/_86825678_cats9.png" datasrc="http://ichef-1.bbci.co.uk/news/200/cpsprodpb/17253/production/_86830849_86830847.jpg" class="js-image-replace" alt="George Osborne" width="100px" >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"> News Item</h4>
-                            <p>Title of artice </p>
-
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="http://ichef-1.bbci.co.uk/news/165/cpsprodpb/15664/production/_86825678_cats9.png" datasrc="http://ichef-1.bbci.co.uk/news/200/cpsprodpb/17253/production/_86830849_86830847.jpg" class="js-image-replace" alt="George Osborne" width="100px" >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"> News Item</h4>
-                            <p>Title of artice </p>
-
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="http://ichef-1.bbci.co.uk/news/165/cpsprodpb/15664/production/_86825678_cats9.png" datasrc="http://ichef-1.bbci.co.uk/news/200/cpsprodpb/17253/production/_86830849_86830847.jpg" class="js-image-replace" alt="George Osborne" width="100px" >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"> News Item</h4>
-                            <p>Title of artice </p>
-
-                        </div>
-                    </li>
-
-                    <li class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img src="http://ichef-1.bbci.co.uk/news/165/cpsprodpb/15664/production/_86825678_cats9.png" datasrc="http://ichef-1.bbci.co.uk/news/200/cpsprodpb/17253/production/_86830849_86830847.jpg" class="js-image-replace" alt="George Osborne" width="100px" >
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <h4 class="media-heading"> News Item</h4>
-                            <p>Title of artice </p>
-
-                        </div>
-                    </li>
-
                 </ul>
-
-
-                <!--<ul class="media-list">-->
-                    <!--<li class="media" ng-repeat="listings in vm.listings">-->
-                        <!--<div class="media-left">-->
-                            <!--<a href="#">-->
-
-                                <!--<img ng-src="http://iproxy.prd.srv.motortrak.com/{{listings.regyear}}/{{listings.make}}-{{listings.model}}-{{listings.town}}-{{listings.vin}}-141-0.jpg"/>-->
-
-                            <!--</a>-->
-                        <!--</div>-->
-                        <!--<div class="media-body">-->
-                            <!--<h4 class="media-heading"> {{ listings.make }} {{ listings.model}} in {{ listings.town}}, {{ listings.state}}</h4>-->
-                            <!--<p>{{listings.metacolour }} {{ listings.trim }} | {{ listings.bodystyle}} | {{-->
-                                <!--listings.town}}</p>-->
-
-                            <!--<p>{{listings.mileage}} Miles | {{ listings.transmission }}</p>-->
-
-                            <!--<p>Stock Number : {{listings.stockno}}</p>-->
-
-                            <!--<p>{{ listings.currency }} {{ listings.price }} | {{ listings.phone }}</p>-->
-
-                        <!--</div>-->
-                    <!--</li>-->
-                <!--</ul>-->
-
-
-
 
             </div>
 

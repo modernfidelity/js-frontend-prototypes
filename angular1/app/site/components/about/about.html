@@ -22,7 +22,7 @@
 
                 <div ng-repeat="item in vm.content track by $index">
                     <strong >{{item.title[0].value}}</strong>
-                    
+
                     <p ng-bind-html="item.body[0].value"></p>
                     <hr>
                 </div>

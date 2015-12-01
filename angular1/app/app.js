@@ -54,12 +54,13 @@ angular.module('project', [
     // App constants (ref env vars)
     .constant('API_URL', 'http://localhost/motortrak/cms')
     .constant('SITE_ID', '1')
+    .constant('LOCALSTORAGE_TOKEN_ID', 'cmscontent')
 
     .run(appRun);
 
 
 // Inject Deps
-appRun.$inject = ['$rootScope', '$location', 'ApiDataService'];
+appRun.$inject = ['$rootScope', '$location', 'ApiDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
 /**
  *
@@ -70,13 +71,12 @@ appRun.$inject = ['$rootScope', '$location', 'ApiDataService'];
  *
  */
 
-function appRun($rootScope, $location, ApiDataService) {
+function appRun($rootScope, $location, ApiDataService, LOCALSTORAGE_TOKEN_ID) {
 
     // @todo : REVIEW (?)
-    var contentData = JSON.parse(localStorage.getItem('cmsdata'));
+    var contentData = JSON.parse(localStorage.getItem(LOCALSTORAGE_TOKEN_ID));
 
     console.log(contentData)
-
 
     if(!contentData){
 
@@ -88,7 +88,7 @@ function appRun($rootScope, $location, ApiDataService) {
 
                 console.log("Calling the API for CMS DATA");
 
-                localStorage.setItem('cmsdata', JSON.stringify(response));
+                localStorage.setItem(LOCALSTORAGE_TOKEN_ID, JSON.stringify(response));
                 cmsData = response
 
             })

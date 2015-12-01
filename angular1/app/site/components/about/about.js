@@ -27,10 +27,8 @@ angular.module('project.about', ['ngRoute', 'API'])
     .controller('AboutController', AboutController);
 
 
-
-
-
-AboutController.$inject = ['$window', 'ApiDataService'];
+// Define injectables for the services
+AboutController.$inject = ['$window', 'ApiDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
 /**
  *
@@ -39,14 +37,14 @@ AboutController.$inject = ['$window', 'ApiDataService'];
  * @constructor
  *
  */
-function AboutController($window, ApiDataService){
+function AboutController($window, ApiDataService, LOCALSTORAGE_TOKEN_ID){
 
 
     var vm = this;
 
     var store = $window.localStorage;
 
-    var content = JSON.parse(store.getItem('cmsdata'));
+    var content = JSON.parse(store.getItem(LOCALSTORAGE_TOKEN_ID));
 
     //var cmsData = {};
 
@@ -65,6 +63,9 @@ function AboutController($window, ApiDataService){
     if(content){
         vm.content = content;
     }else {
+
+         // @todo : CALL API thru data service
+
         vm.content = "Sorry there has been an error";
     }
 

@@ -70126,7 +70126,10 @@ module.exports = warning;
  *
  * API Service
  *
- * @file API wrapper for the application
+ * @file
+ * API wrapper and data integration tool for the application
+ *
+ * @todo :
  *
  */
 
@@ -70152,18 +70155,25 @@ ApiDataService.$inject = ['$http', 'API_URL', 'SITE_ID'];
  */
 function ApiDataService($http, API_URL, SITE_ID) {
 
-
+    // Setup vars
     console.log("Site ID == " + SITE_ID);
 
     var apiEndpoint = API_URL;
 
+
+    // 'Methods' available from the service
     return {
 
+        // CORE DATA
         getCmsData: getCmsData,
-        getArticleData: getArticleData
+
+        // SECTION DATA
+        getArticleData: getArticleData,
+        getNewsData: getNewsData,
+        getEventData: getEventData
+
 
     };
-
 
 
     /**
@@ -70215,9 +70225,10 @@ function ApiDataService($http, API_URL, SITE_ID) {
      *
      * Get Article Data
      *
+     * @param tags
      * @returns {*}
      */
-    function getArticleData() {
+    function getArticleData(tags) {
 
         // Logger
         console.log("API Call : getArticleData");
@@ -70225,7 +70236,7 @@ function ApiDataService($http, API_URL, SITE_ID) {
         /**
          *  Run a data API call & return
          */
-        return $http.get(listingsAPI + "",
+        return $http.get(apiEndpoint + "/articles/" + SITE_ID,
             {cache: true}
             )
             .then(dataComplete)
@@ -70253,6 +70264,98 @@ function ApiDataService($http, API_URL, SITE_ID) {
             console.log('XHR Failed for getListingsData.' + error.data);
         }
 
+
+    }
+
+
+    /**
+     *
+     * Get News Data
+     *
+     * @returns {*}
+     */
+    function getNewsData() {
+
+        // Logger
+        console.log("API Call : getCmsData -> " + apiEndpoint);
+
+        /**
+         *  Run a data API call & return
+         */
+        //return $http.get(apiEndpoint + "/news",
+
+        return $http.get(apiEndpoint + "/site/" + SITE_ID + "/news",
+            {cache: true}
+            )
+            .then(dataComplete)
+            .catch(dataFailed);
+
+        /**
+         *
+         * onSuccess callback of HTTP GET
+         *
+         * @param response
+         * @returns {*}
+         */
+        function dataComplete(response) {
+            console.log("getNewsData - complete called");
+            return response.data;
+        }
+
+        /**
+         *
+         * onError callback
+         *
+         * @param error
+         */
+        function dataFailed(error) {
+            console.log('XHR Failed for getListingsData.' + error.data);
+        }
+
+    }
+
+    /**
+     *
+     * Get Event Data
+     *
+     * @returns {*}
+     */
+    function getEventData() {
+
+        // Logger
+        console.log("API Call : getEventData -> " + apiEndpoint);
+
+        /**
+         *  Run a data API call & return
+         */
+        return $http.get(apiEndpoint + "/events",
+            {cache: true}
+            )
+            .then(dataComplete)
+            .catch(dataFailed);
+
+        /**
+         *
+         * onSuccess callback of HTTP GET
+         *
+         * @param response
+         * @returns {*}
+         */
+        function dataComplete(response) {
+            console.log("complete called getEventData");
+            //localStorage.setItem('cmsdata', response.data);
+            return response.data;
+        }
+
+        /**
+         *
+         * onError callback
+         *
+         * @param error
+         */
+        function dataFailed(error) {
+            console.log('XHR Failed for getEventData.' + error.data);
+        }
 
     }
 
@@ -70287,10 +70390,8 @@ angular.module('project.about', ['ngRoute', 'API'])
     .controller('AboutController', AboutController);
 
 
-
-
-
-AboutController.$inject = ['$window', 'ApiDataService'];
+// Define injectables for the services
+AboutController.$inject = ['$window', 'ApiDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
 /**
  *
@@ -70299,14 +70400,14 @@ AboutController.$inject = ['$window', 'ApiDataService'];
  * @constructor
  *
  */
-function AboutController($window, ApiDataService){
+function AboutController($window, ApiDataService, LOCALSTORAGE_TOKEN_ID){
 
 
     var vm = this;
 
     var store = $window.localStorage;
 
-    var content = JSON.parse(store.getItem('cmsdata'));
+    var content = JSON.parse(store.getItem(LOCALSTORAGE_TOKEN_ID));
 
     //var cmsData = {};
 
@@ -70325,6 +70426,9 @@ function AboutController($window, ApiDataService){
     if(content){
         vm.content = content;
     }else {
+
+         // @todo : CALL API thru data service
+
         vm.content = "Sorry there has been an error";
     }
 
@@ -70518,11 +70622,12 @@ function FrontpageController() {
  *
  * @file Provides a simple page component for the site
  *
+ *
  */
 
 'use strict';
 
-angular.module('project.news', ['ngRoute'])
+angular.module('project.news', ['ngRoute', 'API'])
 
     // Provide router info for component
     .config(['$routeProvider', function ($routeProvider) {
@@ -70542,9 +70647,9 @@ angular.module('project.news', ['ngRoute'])
 
 
 // Use Angular $inject to handle dependency injection into handler functions
-NewsDataService.$inject = ['$http'];
+NewsDataService.$inject = ['$http', 'ApiDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
-NewsController.$inject = ['NewsDataService'];
+NewsController.$inject = ['NewsDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
 /**
  *
@@ -70554,76 +70659,31 @@ NewsController.$inject = ['NewsDataService'];
  * @constructor
  *
  */
-function NewsDataService($http) {
-
-    // @todo : add this to app config var in main module & inject constant
-    var listingsAPI = "http://localhost:1337/www.romano.mercedesdealer.com/cgi-bin/mbusa/mbhlnew.cgi?format=json&franchisefirst=1&photocars=&dealer=80398&country2=US&request=used&mileagefrom=0&sortby=yeardesc&yearto=9999&labels=1";
-
+function NewsDataService($http, ApiDataService, LOCALSTORAGE_TOKEN_ID) {
 
     // Function returns
     return {
-        getNewsData: getNewsData,
-        getNewsRelatedData: getNewsRelatedData,
-        getListingsData: getListingsData
+        getNewsData: getNewsData
+        //getListingsData: getListingsData
     };
 
 
     /**
      *
-     * Get News Data
+     * Get News Data from API
      *
      * @returns {*}
      */
     function getNewsData() {
 
-        // Logger
-        console.log("NewsDataService.getNewsData");
 
-        /**
-         *  Run a data API call
-         */
-        return $http.get("http://www.omdbapi.com/?t=" + term + "&tomatoes=true&plot=full")
-            .then(dataComplete)
-            .catch(dataFailed);
+        var newsToken = LOCALSTORAGE_TOKEN_ID + "_news";
 
-        /**
-         *
-         * onSuccess callback of HTTP GET
-         *
-         * @param response
-         * @returns {*}
-         */
-        function dataComplete(response) {
-            console.log("complete called");
-            return response.data;
-        }
-
-        /**
-         *
-         * onError callback
-         *
-         * @param error
-         */
-        function dataFailed(error) {
-            console.log('XHR Failed for getNewsData.' + error.data);
-        }
-    }
-
-    /**
-     *
-     * Get News Related Data
-     *
-     * @returns {*}
-     */
-    function getNewsRelatedData() {
-
-        // Logger
-        console.log("NewsDataService.getNewsData");
 
         /**
          *  Run a data API call & return
          */
-        return $http.get("http://www.omdbapi.com/?t=" + term + "&tomatoes=true&plot=full")
+        return ApiDataService.getNewsData()
             .then(dataComplete)
             .catch(dataFailed);
 
@@ -70635,8 +70695,39 @@ function NewsDataService($http) {
          * @returns {*}
          */
         function dataComplete(response) {
-            console.log("complete called");
-            return response.data;
+
+            var expireTimeInSeconds = 120;
+
+            //return {
+            //    set: function(key, value, expireTimeInSeconds) {
+            //        return localforage.setItem(key, {
+            //            data: value,
+            //            timestamp: new Date().getTime(),
+            //            expireTimeInMilliseconds: expireTimeInSeconds * 1000
+            //        })
+            //    },
+            //    get: function(key) {
+            //        return localforage.getItem(key).then(function(item) {
+            //            if(!item || new Date().getTime() > (item.timestamp + item.expireTimeInMilliseconds)) {
+            //                return null
+            //            } else {
+            //                return item.data
+            //            }
+            //        })
+            //    }
+            //}
+
+            // Write a cache in localstorage & then return the response with expires.
+            localStorage.setItem(newsToken, JSON.stringify({
+                data: response,
+                timestamp: new Date().getTime(),
+                expireTimeInMilliseconds: expireTimeInSeconds * 1000
+            }));
+
+
+            //JSON.stringify(response),
+
+            return response;
         }
 
         /**
@@ -70646,9 +70737,12 @@ function NewsDataService($http) {
          * @param error
          */
         function dataFailed(error) {
-            console.log('XHR Failed for getNewsRelatedData.' + error.data);
+            console.log('XHR Failed for getNewData API.' + error.data);
         }
+
+
     }
+
 
     /**
      *
@@ -70693,8 +70787,7 @@ function NewsDataService($http) {
     }
 
 
-};
-
+}
 
 
 /**
@@ -70705,19 +70798,12 @@ function NewsDataService($http) {
  * @constructor
  *
  */
-function NewsController(NewsDataService) {
+function NewsController(NewsDataService, LOCALSTORAGE_TOKEN_ID) {
 
     // Define View Model for template
     var vm = this;
 
-    vm.term = "News data";
-
-    vm.news = [];
-
     vm.listings = [];
-
-    // Simpler - @todo : improve only log based on ENV_VAR || remove
-    console.log("news controller");
 
     // Call main controller function
     activate();
@@ -70733,42 +70819,64 @@ function NewsController(NewsDataService) {
         /**
          * Call the data service chain
          */
-        return getNewsData().then(function () {
-            console.log('Activated News View');
-        });
+        //return getNewsData().then(function () {
+        //    console.log('Activated News View');
+        //});
+
+        return getNewsData();
 
     }
 
     /**
      *
-     * Get News Data from the Data Service
+     * Get News Data from the Data Service or localstorage if set
      *
      * @returns {Array}
      */
     function getNewsData() {
 
-        console.log("controller closure");
+        var newsToken = LOCALSTORAGE_TOKEN_ID + "_news";
 
-        var content = [];
+        // See if content api token has been set
+        var localContentData = JSON.parse(localStorage.getItem(newsToken));
 
-        // Populate the VM object with returned API data
-        content = NewsDataService.getListingsData()
+        // If expired of not set call API
+        if (!localContentData || new Date().getTime() > (localContentData.timestamp + localContentData.expireTimeInMilliseconds)) {
 
-            .then(function (data) {
+            var content = [];
 
-                vm.listings = data;
+            // Populate the VM object with returned API data
+            content = NewsDataService.getNewsData()
+                .then(function (data) {
 
-                console.log("controller news data caller");
+                    vm.listings = data;
 
-                return vm.listings;
-            });
+                    console.log("NEWS DATA ->> " + data);
+
+                    return vm.listings;
+
+                });
 
 
-        return content;
+            return content;
+
+        } else {
+
+            var storageExpireTime = localContentData.timestamp + localContentData.expireTimeInMilliseconds;
+            var timeNow = new Date().getTime();
+
+            // TEST Timings
+            console.log("TTL " + (storageExpireTime - timeNow));
+
+            return vm.listings = localContentData.data;
+
+        }
+
+
     }
 
 
-};
+}
 
 
 /**
@@ -72061,12 +72169,13 @@ angular.module('project', [
     // App constants (ref env vars)
     .constant('API_URL', 'http://localhost/motortrak/cms')
     .constant('SITE_ID', '1')
+    .constant('LOCALSTORAGE_TOKEN_ID', 'cmscontent')
 
     .run(appRun);
 
 
 // Inject Deps
-appRun.$inject = ['$rootScope', '$location', 'ApiDataService'];
+appRun.$inject = ['$rootScope', '$location', 'ApiDataService', 'LOCALSTORAGE_TOKEN_ID'];
 
 /**
  *
@@ -72077,13 +72186,12 @@ appRun.$inject = ['$rootScope', '$location', 'ApiDataService'];
  *
  */
 
-function appRun($rootScope, $location, ApiDataService) {
+function appRun($rootScope, $location, ApiDataService, LOCALSTORAGE_TOKEN_ID) {
 
     // @todo : REVIEW (?)
-    var contentData = JSON.parse(localStorage.getItem('cmsdata'));
+    var contentData = JSON.parse(localStorage.getItem(LOCALSTORAGE_TOKEN_ID));
 
     console.log(contentData)
-
 
     if(!contentData){
 
@@ -72095,7 +72203,7 @@ function appRun($rootScope, $location, ApiDataService) {
 
                 console.log("Calling the API for CMS DATA");
 
-                localStorage.setItem('cmsdata', JSON.stringify(response));
+                localStorage.setItem(LOCALSTORAGE_TOKEN_ID, JSON.stringify(response));
                 cmsData = response
 
             })
