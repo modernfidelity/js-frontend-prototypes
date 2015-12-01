@@ -76,6 +76,9 @@ gulp.task('js', function () {
             'app/bower_components/jquery/dist/jquery.js',
             'app/bower_components/angular/angular.js',
             'app/bower_components/angular-route/angular-route.js',
+            'app/bower_components/angular-sanitize/angular-sanitize.js',
+
+            // NON-CORE
             'app/bower_components/slick-carousel/slick/slick.js',
             'app/bower_components/angular-slick/dist/slick.js',
             'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',

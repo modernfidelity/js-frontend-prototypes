@@ -9,7 +9,7 @@
 'use strict';
 
 
-angular.module('project.about', ['ngRoute'])
+angular.module('project.about', ['ngRoute', 'API'])
 
     // Provide router info for component
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -26,6 +26,12 @@ angular.module('project.about', ['ngRoute'])
     // Define controller function
     .controller('AboutController', AboutController);
 
+
+
+
+
+AboutController.$inject = ['$window', 'ApiDataService'];
+
 /**
  *
  * About Controller
@@ -33,10 +39,38 @@ angular.module('project.about', ['ngRoute'])
  * @constructor
  *
  */
-function AboutController(){
+function AboutController($window, ApiDataService){
+
 
     var vm = this;
 
-    vm.link = "This is set within the controller";
+    var store = $window.localStorage;
+
+    var content = JSON.parse(store.getItem('cmsdata'));
+
+    //var cmsData = {};
+
+    //// Call the CMS and get content data
+    //ApiDataService.getCmsData()
+    //    .then(function (response) {
+    //
+    //        console.log("Calling the API for CMS DATA");
+    //        vm.live_content = response
+    //
+    //    })
+    //    .catch(function (error) {
+    //        console.log("API CMS error");
+    //    });
+
+    if(content){
+        vm.content = content;
+    }else {
+        vm.content = "Sorry there has been an error";
+    }
+
+
+
+
+
 
 }

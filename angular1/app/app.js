@@ -14,6 +14,7 @@
 // Declare app level module which depends on views, and components
 angular.module('project', [
     'ngRoute',
+    'ngSanitize',
     'slick',
     'formly',
     'formlyBootstrap',
@@ -29,7 +30,7 @@ angular.module('project', [
     'project.vdp',
     'project.react',
     //'project.react-table',
-    'project.api'
+    'API'
 ]).
 
     // Add $locationProvider for HTML5 routes
@@ -44,7 +45,6 @@ angular.module('project', [
         //$httpProvider.interceptors.push('AuthInterceptor');
 
         $routeProvider
-
             .otherwise({
                 redirectTo: '/frontpage'
             });
@@ -52,20 +52,77 @@ angular.module('project', [
     }])
 
     // App constants (ref env vars)
-    .constant('API_URL', 'http://localhost:3000')
+    .constant('API_URL', 'http://localhost/motortrak/cms')
+    .constant('SITE_ID', '1')
 
-    // Move this to a service
-    .run(['$rootScope', '$route', function ($rootScope, $route) {
+    .run(appRun);
 
-        // Define RootScope vars
-        $rootScope.noScroll = false;
 
-        // Set PageTitle variable in global scope
-        // @todo : convert to service (?)
-        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-            $rootScope.pageTitle = current.$$route.title;
-            console.log($rootScope.pageTitle);
-        });
+// Inject Deps
+appRun.$inject = ['$rootScope', '$location', 'ApiDataService'];
 
-    }]);
+/**
+ *
+ * App RUN scope
+ *
+ * @param $rootScope
+ * @param $location
+ *
+ */
 
+function appRun($rootScope, $location, ApiDataService) {
+
+    // @todo : REVIEW (?)
+    var contentData = JSON.parse(localStorage.getItem('cmsdata'));
+
+    console.log(contentData)
+
+
+    if(!contentData){
+
+        var cmsData = {};
+
+        // Call the CMS and get content data
+        ApiDataService.getCmsData()
+            .then(function (response) {
+
+                console.log("Calling the API for CMS DATA");
+
+                localStorage.setItem('cmsdata', JSON.stringify(response));
+                cmsData = response
+
+            })
+            .catch(function (error) {
+                console.log("API CMS error");
+            });
+
+        console.log(cmsData);
+
+
+    }
+
+
+
+
+    // register listener to watch route changes
+    $rootScope.$on("$routeChangeStart", function (event, next, current) {
+
+
+        // Check token
+        var token = localStorage.getItem('auth-token');
+
+        if (next.access.requiresLogin == true) {
+
+            //console.log("@RUN - " - token);
+
+            if (!token) {
+                console.log("REQUIRES Login + user has no JWT token...");
+                event.preventDefault();
+                $location.path("/login");
+            }
+
+        }
+
+    });
+
+}

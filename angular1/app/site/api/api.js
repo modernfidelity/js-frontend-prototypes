@@ -6,88 +6,131 @@
  *
  */
 
-angular.module('project.api', [])
 
-    .service('API', ["$http",  function ($http) {
 
-        var searchEndpoint = '/api/Vehicles';
+'use strict';
 
-        var vehiclesEndpoint = '/api/Vehicles';
+angular.module('API', [])
+
+    // Define 'data' service function
+    .service('ApiDataService', ApiDataService);
+
+
+// Use Angular $inject to handle dependency injection into handler functions
+ApiDataService.$inject = ['$http', 'API_URL', 'SITE_ID'];
+
+
+/**
+ *
+ * API Data Service
+ *
+ * @constructor
+ */
+function ApiDataService($http, API_URL, SITE_ID) {
+
+
+    console.log("Site ID == " + SITE_ID);
+
+    var apiEndpoint = API_URL;
+
+    return {
+
+        getCmsData: getCmsData,
+        getArticleData: getArticleData
+
+    };
+
+
+
+    /**
+     *
+     * Get (CMS) Site Data
+     *
+     * @returns {*}
+     */
+    function getCmsData() {
+
+        // Logger
+        console.log("API Call : getCmsData -> " + apiEndpoint);
+
+        /**
+         *  Run a data API call & return
+         */
+        return $http.get(apiEndpoint + "/site/" + SITE_ID,
+            {cache: true}
+            )
+            .then(dataComplete)
+            .catch(dataFailed);
 
         /**
          *
-         * Perform Search
+         * onSuccess callback of HTTP GET
          *
-         * @param term
+         * @param response
          * @returns {*}
          */
-
-        this.doSearch = function (term) {
-
-            var route = 'search';
-            var args = {
-                term: term,
-
-            };
-
-            return $http.get(searchEndpoint).then(function (response) {
-                return response.data;
-            });
-        };
-
-
+        function dataComplete(response) {
+            console.log("complete called");
+            //localStorage.setItem('cmsdata', response.data);
+            return response.data;
+        }
 
         /**
          *
-         * Get Vehicles List
+         * onError callback
          *
-         * @returns {HttpPromise}
+         * @param error
          */
+        function dataFailed(error) {
+            console.log('XHR Failed for getListingsData.' + error.data);
+        }
 
-        this.getVehicles = function () {
-            return $http.get(vehiclesEndpoint);
-        };
+    }
 
+    /**
+     *
+     * Get Article Data
+     *
+     * @returns {*}
+     */
+    function getArticleData() {
+
+        // Logger
+        console.log("API Call : getArticleData");
+
+        /**
+         *  Run a data API call & return
+         */
+        return $http.get(listingsAPI + "",
+            {cache: true}
+            )
+            .then(dataComplete)
+            .catch(dataFailed);
 
         /**
          *
-         * Get Vehicle Detail
+         * onSuccess callback of HTTP GET
          *
-         * @param id
-         * @returns {HttpPromise}
+         * @param response
+         * @returns {*}
          */
-
-        this.getVehicle = function (id) {
-            return $http.get(vehiclesEndpoint + '/' + id);
-        };
-
+        function dataComplete(response) {
+            console.log("complete called");
+            return response.data;
+        }
 
         /**
          *
-         * Get Movie Detail
+         * onError callback
          *
-         * @param term
-         * @returns {{}}
+         * @param error
          */
-        this.fetchMovie = function (term) {
-
-            var data = {};
-
-            $http.get("http://www.omdbapi.com/?t=" + term + "&tomatoes=true&plot=full")
-                .success(function(response) {
-                    data.details = response;
-                });
-
-            $http.get("http://www.omdbapi.com/?s=" + term)
-                .success(function(response) {
-                    data.related = response;
-                });
-
-
-            return data;
-
+        function dataFailed(error) {
+            console.log('XHR Failed for getListingsData.' + error.data);
         }
 
 
+    }
 
-    }]);
+
+}

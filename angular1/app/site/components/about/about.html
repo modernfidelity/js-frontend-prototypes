@@ -17,7 +17,34 @@
                     with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
                     publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
-                Link: {{ vm.link }}
+
+                <p>====== localstorage ==============================</p>
+
+                <div ng-repeat="item in vm.content track by $index">
+                    <strong >{{item.title[0].value}}</strong>
+                    
+                    <p ng-bind-html="item.body[0].value"></p>
+                    <hr>
+                </div>
+
+
+
+                <!--Localstorage: {{ vm.content | json }}-->
+
+
+
+
+
+                <p>=======  API  =============================</p>
+
+                <!--API Call: {{vm.live_content | json }}-->
+
+
+
+                <div ng-repeat="item in vm.live_content track by $index">
+                    {{item.title[0].value}}
+                </div>
+
 
             </div>
 
